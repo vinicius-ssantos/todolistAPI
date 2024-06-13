@@ -7,6 +7,7 @@ Este é um projeto de uma API de gerenciamento de tarefas, desenvolvido com Java
 - Java 11
 - Maven
 - MySQL
+- 
 
 ## Configuração do ambiente
 
