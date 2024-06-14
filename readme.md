@@ -35,9 +35,9 @@ Este é um projeto de uma API de gerenciamento de tarefas, desenvolvido com Java
 
 5. Execute o comando `mvn spring-boot:run` para iniciar a aplicação.
 
-A aplicação estará disponível em `http://localhost:8080`.
+- A aplicação estará disponível em `http://localhost:8080`.
 
-## [Endpoints](documentos/endpoints.md)
+## [Endpoints Tasks API](documentos/endpoints.md)
 
 A API possui os seguintes endpoints:
 
@@ -46,6 +46,15 @@ A API possui os seguintes endpoints:
 - `DELETE /tasks/{id}`: Deleta uma tarefa existente.
 - `GET /tasks/{id}`: Obtém uma tarefa específica pelo ID.
 - `PATCH /tasks/{id}/complete`: Marca uma tarefa como completa.
+
+
+# Actuator no Projeto
+O Actuator adiciona recursos de gerenciamento e monitoramento à nossa aplicação Spring Boot.
+## Endpoints do Actuator
+- `/actuator/health`: Verifica o estado da aplicação.
+- `/actuator/info`: Fornece informações gerais sobre a aplicação.
+- `/actuator/metrics`: Coleta métricas da aplicação.
+- `/actuator/env`: Fornece detalhes sobre o ambiente da aplicação.
 
 
 
