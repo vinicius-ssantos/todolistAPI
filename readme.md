@@ -17,6 +17,12 @@ Este é um projeto de uma API de gerenciamento de tarefas, desenvolvido com Java
 
 3. Instale o MySQL. Você pode baixar o MySQL [aqui](https://dev.mysql.com/downloads/installer/).
 
+4. Crie um banco de dados chamado `todolist` no MySQL. Você pode seguir o guia de criação do banco de dados [aqui](documentos/createDatabase.md).
+
+5. Configure as credenciais do banco de dados no arquivo `application.properties`. Você pode encontrar o arquivo `application.properties` em `src/main/resources`.
+
+
+
 ## Como executar o projeto
 
 1. Clone o repositório para a sua máquina local usando `git clone https://github.com/vinicius-ssantos/todolist.git`.
@@ -31,7 +37,7 @@ Este é um projeto de uma API de gerenciamento de tarefas, desenvolvido com Java
 
 A aplicação estará disponível em `http://localhost:8080`.
 
-## Endpoints
+## [Endpoints](documentos/endpoints.md)
 
 A API possui os seguintes endpoints:
 
@@ -41,13 +47,13 @@ A API possui os seguintes endpoints:
 - `GET /tasks/{id}`: Obtém uma tarefa específica pelo ID.
 - `PATCH /tasks/{id}/complete`: Marca uma tarefa como completa.
 
-### Para mais detalhes sobre os endPoints [Clique aqui](documentos/endpoints.md)
 
-## Documentação da API
+
+## [Documentação da API](documentos/swagger.md)
 
 A documentação da API está disponível em `http://localhost:8080/swagger-ui.html`.
 
-## Testes
+## [Testes](documentos/testes.md)
 
 Para executar os testes, use o comando `mvn test`.
 

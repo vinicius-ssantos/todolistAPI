@@ -95,9 +95,7 @@ class TaskControllerTest {
         restTemplate.delete("/tasks/" + postResponse.getBody().getId(), TaskDTO.class);
         ResponseEntity<TaskDTO> responseTask = null;
         ResponseEntity<String> response = restTemplate.getForEntity("/tasks/" + postResponse.getBody().getId(), String.class);
-        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-
-
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
 
 }

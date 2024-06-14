@@ -17,14 +17,20 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+// Esta classe fornece a implementação para a interface TaskService.
+// Ela é anotada com @Service para indicar que é uma classe de serviço no contexto do Spring.
 @Service
 @AllArgsConstructor
 public class TaskServiceImpl implements TaskService {
 
+
+    // Injeção do TaskRepository para interagir com o banco de dados.
     @Autowired
     private final TaskRepository taskRepository;
 
-
+    // Método para criar uma nova tarefa.
+    // Ele valida a tarefa antes de salvá-la no banco de dados.
     @Override
     @Transactional
     public TaskDTO post(TaskDTO taskDto) {
@@ -44,6 +50,8 @@ public class TaskServiceImpl implements TaskService {
 
     }
 
+    // Método para atualizar uma tarefa existente.
+    // Ele valida a tarefa antes de atualizá-la no banco de dados.
     @Override
     @Transactional
     public Task put(TaskDTO taskDto, Long id) {
@@ -55,6 +63,8 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.save(taskDB);
     }
 
+    // Método para marcar uma tarefa como concluída.
+    // Ele lança uma exceção se a tarefa já estiver concluída.
     @Override
     @Transactional
     public Task patch(Long id) {
@@ -67,6 +77,8 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.save(taskDB);
     }
 
+    // Método para excluir uma tarefa.
+    // Ele lança uma exceção se a tarefa não for encontrada.
     @Override
     @Transactional
     public void delete(Long id) {
@@ -77,7 +89,8 @@ public class TaskServiceImpl implements TaskService {
         }
     }
 
-
+    // Método para obter todas as tarefas.
+    // Ele retorna uma lista de objetos TaskDTO.
     @Override
     @Transactional(readOnly = true)
     public List<TaskDTO> getAll() {
@@ -91,6 +104,8 @@ public class TaskServiceImpl implements TaskService {
         }).collect(Collectors.toList());
     }
 
+    // Método para obter uma tarefa pelo seu ID.
+    // Ele lança uma exceção se a tarefa não for encontrada.
     @Override
     public TaskDTO getById(Long id) {
         Task task = taskRepository.findById(id).orElseThrow(() -> new TaskNotFoundException("Task not found"));
@@ -103,6 +118,8 @@ public class TaskServiceImpl implements TaskService {
 
     }
 
+    // Método para validar uma tarefa.
+    // Ele lança uma exceção se o título ou a descrição não forem fornecidos.
     @Override
     public void validar(TaskDTO task) {
         if (task.getTitle() == null || task.getTitle().isEmpty()) {
@@ -112,5 +129,4 @@ public class TaskServiceImpl implements TaskService {
             throw new DescriptionNotProvidedException("Description is required");
         }
     }
-
 }
